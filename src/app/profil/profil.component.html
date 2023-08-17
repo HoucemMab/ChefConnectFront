@@ -1,0 +1,26 @@
+<div class="profile-header">
+    <h2>Bonjour {{ user.firstName }} {{ user.lastName }}</h2>
+    <p>Email : {{ user.mail }}</p>
+
+  </div>
+  
+  <div class="user-recipes">
+    <h3 class="recipe-list-title">Mes recettes</h3>
+    <div *ngIf="recipes.length > 0">
+      <div class="recipe-card" *ngFor="let recipe of recipes">
+        <h4>Titre: {{ recipe.title }}</h4>
+        <p>Description: {{ recipe.description }}</p>
+        <p>Temps de préparation: {{ recipe.preparationTime }} minutes</p>
+        <p>Temps de cuisson: {{ recipe.cookingTime }} minutes</p>
+        <p>Catégorie: {{ recipe.category }}</p>
+        <p>Etapes: {{ recipe.steps }}</p>
+        <div style="width: 50px;">
+        <div class="recipe-icons">
+            <i class="fas fa-edit" (click)="navigateToEditRecipe(recipe.recipeId)"></i> <!-- Icône de modification -->
+            <i class="fas fa-trash-alt" (click)="deleteRecipe(recipe.recipeId)"></i> <!-- Icône de suppression -->
+          </div>
+      </div>
+    </div>
+    
+  </div>
+  

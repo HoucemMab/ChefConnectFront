@@ -1,0 +1,55 @@
+<div class="container-fluid" style="margin-left:1500px;">
+    <div class="row no-gutter">
+
+        <!-- The image half -->
+        <div class="col-md-6 d-none d-md-flex bg-image">
+        </div>
+        <!-- The content half -->
+        <div class="col-md-6 bg-light">
+            <div class="login d-flex align-items-center py-5">
+                <!-- Demo content-->
+                <div class="container" *ngIf="loginForm">
+                    <div class="row">
+                        <div style="width:450px; margin-left:450px; margin-top:-50px;">
+                            <h3 class="display-4">Se connecter</h3>
+
+<form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+
+    <div class="form-group mb-3">
+        <input id="inputEmail" type="email" formControlName="email"
+        [ngClass]="{ 'is-invalid': submitted && loginForm.controls['email'].errors }"
+        placeholder="Adresse Email" autofocus=""
+        class="form-control rounded-pill border-0 shadow-sm px-4">
+
+    <div *ngIf="submitted && loginForm.controls['email'].errors" class="invalid-feedback">
+        <div *ngIf="loginForm.controls['email'].hasError('required')">Vous devez saisir votre adresse Email</div>
+        <div *ngIf="loginForm.controls['email'].hasError('email')">
+            L'e-mail doit être une adresse valide</div>
+
+    </div>
+
+    </div>    
+  
+    <div class="form-group mb-3">
+        <input id="inputPassword" type="password" formControlName="password"
+            [ngClass]="{ 'is-invalid': submitted && loginForm.controls['password'].errors}"
+            placeholder="mot de passe"
+            class="form-control rounded-pill border-0 shadow-sm px-4 text-primary">
+        <div *ngIf="submitted && loginForm.controls['password'].errors" class="invalid-feedback">
+            <div *ngIf="loginForm.controls['password'].hasError('required')">Vous devez saisir un mot de passe</div>
+            <div *ngIf="loginForm.controls['password'].hasError('required')">Le mot de passe doit être
+                au moins 3 caractères.</div>
+
+        </div>
+    </div>
+    <button type="submit" class="btn btn-primary btn-block text-uppercase mb-2 rounded-pill shadow-sm" style="margin-left: 160px;margin-top: 20px;">Se connecter</button>
+    </form>
+    <p class="text-muted mb-4" style="margin-top:10px;margin-left: 30px;font-size: 15px;">Vous n’avez pas de compte ? </p>
+    <a routerLink="/register" style="color: #1d6ada; text-decoration: none; margin-left: 30px;font-size: 15px;">Inscrivez-vous</a>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>

@@ -1,0 +1,94 @@
+@import '~@fortawesome/fontawesome-free/css/all.css';
+.user-profile {
+  background-color: #e74c3c;
+  color: #fff;
+  padding: 20px;
+  border-radius: 10px;
+  margin-bottom: 20px;
+  text-align: center;
+}
+
+.user-profile h2 {
+  margin-bottom: 10px;
+}
+
+.profile-header {
+    background-color: #e74c3c;
+    color: #fff;
+    padding: 20px;
+    text-align: center;
+  }
+  
+  .profile-header .name {
+    font-size: 24px;
+    margin-bottom: 5px;
+  }
+  
+  .profile-header .email {
+    font-size: 16px;
+  }
+
+.user-recipes {
+  background-color: #f2f2f2;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
+}
+
+/* Style pour le titre "Mes recettes" */
+.recipe-list-title {
+    text-align: center;
+    font-size: 24px;
+    margin-bottom: 20px;
+    color: black; /* Couleur noire */
+  }
+  
+  /* Style pour la liste de recettes */
+  .recipe-list {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    gap: 20px;
+  }
+  
+  .recipe-card {
+    background-color: #f2f2f2;
+    border: 1px solid #ddd;
+    padding: 15px;
+    border-radius: 5px;
+    box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.1);
+    margin-bottom: 20px;
+  }
+  
+  .recipe-card h3 {
+    color: #e74c3c; /* Couleur rouge */
+    font-size: 20px;
+    margin-bottom: 10px;
+  }
+  
+  .recipe-card p {
+    color: #555;
+    margin-bottom: 5px;
+  }
+  
+/* Ajoutez ces styles à votre fichier CSS */
+
+.recipe-icons {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 10px;
+  }
+  
+  .recipe-icons i {
+    font-size: 18px;
+    color: #777;
+    cursor: pointer;
+  }
+  
+  .recipe-icons i:hover {
+    color: #e74c3c;
+  }
+
+  
+    
+

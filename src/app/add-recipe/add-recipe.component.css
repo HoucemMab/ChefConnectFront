@@ -1,0 +1,229 @@
+.main-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  background-color: #f8f9fa;
+}
+/* Form container */
+.form-container {
+  margin-top: 70px;
+  margin-bottom: 20px;
+  width: 550px;
+  padding: 30px;
+  background-color: #fff;
+  border-radius: 10px;
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
+}
+
+/* Style pour le bouton "Ajouter un autre ingrédient" */
+button[type="button"] {
+  margin-bottom: 10px;
+}
+
+/* Style pour le conteneur des ingrédients */
+div[formArrayName="ingredients"] {
+  border: 1px solid #ccc;
+  padding: 10px;
+  margin-top: 20px;
+}
+
+/* Style pour chaque ingrédient */
+div[formArrayName="ingredients"] > div {
+  border-bottom: 1px solid #ccc;
+  margin-bottom: 10px;
+  padding-bottom: 10px;
+}
+
+/* Style pour les champs d'entrée */
+input[type="text"],
+input[type="number"] {
+  width: 100%;
+  padding: 5px;
+  margin-bottom: 5px;
+  border: 1px solid #ccc;
+  border-radius: 3px;
+}
+
+/* Style pour le bouton "Supprimer" */
+button[type="button"] {
+  background-color: #ff0000;
+  color: #fff;
+  border: none;
+  border-radius: 3px;
+  padding: 5px 10px;
+  cursor: pointer;
+}
+
+/* Style pour les erreurs de validation */
+.ng-invalid {
+  border-color: #ff0000;
+}
+
+/* Style pour les étiquettes */
+label {
+  font-weight: bold;
+}
+
+/* Style pour le message d'erreur */
+.error-message {
+  color: #ff0000;
+  font-size: 12px;
+}
+
+/* Global container */
+.container-fluid {
+  margin-left: 100px;
+  margin-top: 100px;
+}
+
+/* Form layout */
+.row.no-gutter {
+  margin: 0;
+}
+
+/* Image half */
+.col-md-6.d-none.d-md-flex.bg-image {
+  /* background-image: url('url_de_votre_image.jpg'); */
+  background-size: cover;
+  background-position: center;
+}
+
+/* Content half */
+.col-md-6.bg-light {
+  padding: 0;
+}
+
+/* Form container */
+.login {
+  display: flex;
+  align-items: center;
+  height: 100vh;
+}
+
+.container.ng-star-inserted {
+  width: 450px;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: -50px;
+  padding: 20px;
+  background-color: #fff;
+  border-radius: 8px;
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+}
+
+/* Titre stylisé */
+.display-4 {
+  font-size: 32px;
+  font-weight: bold;
+  margin-bottom: 20px;
+  color: #e74c3c; /* Couleur vive */
+  text-align: center; /* Centré horizontalement */
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1); /* Légère ombre de texte */
+}
+
+/* Input and textarea styles */
+.form-control {
+  border: none;
+  border-radius: 5px;
+  width: 500px;
+  padding: 12px;
+  margin-bottom: 15px;
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+}
+
+/* Invalid input styles */
+.is-invalid {
+  border-color: #ff0000 !important;
+}
+
+.invalid-feedback {
+  color: #ff0000;
+  font-size: 12px;
+  margin-top: -5px;
+  margin-bottom: 15px;
+}
+
+/* Add ingredient button */
+.add-ingredient-btn {
+  background-color: #007bff;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  padding: 5px 10px;
+  cursor: pointer;
+  margin-bottom: 10px;
+}
+
+/* Ingredient group */
+.ingredient-group {
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  margin-bottom: 10px;
+}
+
+/* Remove ingredient button */
+.remove-ingredient-btn {
+  background-color: #dc3545;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  padding: 3px 8px;
+  cursor: pointer;
+  margin-left: 10px;
+}
+
+/* Submit button */
+.submit-btn {
+  margin-top: 20px;
+  background-color: #28a745;
+  color: white;
+  border: none;
+  border-radius: 20px;
+  padding: 12px;
+  font-weight: bold;
+  cursor: pointer;
+  width: 100%;
+}
+
+
+/* Bouton assorti centré */
+.submit-btn {
+  display: block;
+  width: 150px;
+  margin: 0 auto; /* Centrer horizontalement */
+  padding: 10px;
+  font-weight: bold;
+  text-transform: uppercase;
+  background-color: #ff6b6b;
+  color: #fff;
+  border: none;
+  border-radius: 15px;
+  box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
+  cursor: pointer;
+  transition: background-color 0.3s;
+  margin-top: 20px;
+}
+
+.submit-btn:hover {
+  background-color: #ff4f4f;
+}
+
+/* Style pour les champs de téléchargement d'image et de vidéo */
+.form-group {
+  margin-bottom: 20px;
+}
+
+label {
+  display: block;
+  font-weight: bold;
+  margin-bottom: 5px;
+}
+
+input[type="file"] {
+  display: block;
+  margin-top: 5px;
+}
+
+

@@ -1,0 +1,99 @@
+<div class="container-fluid" style="margin-left:20px;margin-top: 100px;">
+    <div class="row no-gutter">
+
+        <!-- The image half -->
+        <div class="col-md-6 d-none d-md-flex bg-image">
+        </div>
+        <!-- The content half -->
+        <div class="col-md-6 bg-light">
+            <div class="login d-flex align-items-center py-5">
+                <!-- Demo content-->
+                <div class="container" *ngIf="registerForm">
+                    <div class="row">
+                        <div style="width:450px; margin-left:450px; margin-top:-50px;">
+                            <h3 class="display-4">S'inscrire</h3>
+
+<form [formGroup]="registerForm" (ngSubmit)="onSubmit()">
+
+    <div class="form-group mb-3">
+        <input id="inputFirstName" type="text" formControlName="firstName"
+        [ngClass]="{ 'is-invalid': submitted && registerForm.controls['firstName'].errors }"
+        placeholder="Nom" autofocus=""
+        class="form-control rounded-pill border-0 shadow-sm px-4">
+
+    <div *ngIf="submitted && registerForm.controls['firstName'].errors" class="invalid-feedback">
+        <div *ngIf="registerForm.controls['firstName'].hasError('required')">Vous devez saisir votre  Nom</div>
+    </div>
+
+    </div>
+<div class="form-group mb-3">
+    <input id="inputLastName" type="text" formControlName="lastName" 
+    [ngClass]="{ 'is-invalid': submitted && registerForm.controls['lastName'].errors }"
+    placeholder = "Prenom" autofocus = ""
+    class="form-control rounded-pill border-0 shadow-sm px-4">
+
+    <div *ngIf="submitted && registerForm.controls['lastName'].errors " class ="invalid-feedback">
+        <div *ngIf="registerForm.controls['lastName'].hasError('required')">Vous devez saisir votre  Prenom</div>
+    </div>
+</div>
+   
+
+    <div class="form-group mb-3">
+        <input id="inputEmail" type="email" formControlName="mail"
+        [ngClass]="{ 'is-invalid': submitted && registerForm.controls['mail'].errors }"
+        placeholder="Adresse Email" autofocus=""
+        class="form-control rounded-pill border-0 shadow-sm px-4">
+
+    <div *ngIf="submitted && registerForm.controls['mail'].errors" class="invalid-feedback">
+        <div *ngIf="registerForm.controls['mail'].hasError('required')">Vous devez saisir votre adresse Email</div>
+        <div *ngIf="registerForm.controls['mail'].hasError('mail')">
+            L'e-mail doit être une adresse valide</div>
+
+    </div>
+
+    </div>    
+
+    <input id="inputPhoneNumber" type="number" formControlName="">
+  
+    <div class="form-group mb-3">
+        <input id="inputPassword" type="number" formControlName="phoneNumber"
+            [ngClass]="{ 'is-invalid': submitted && registerForm.controls['phoneNumber'].errors}"
+            placeholder="Numero de telephone"
+            class="form-control rounded-pill border-0 shadow-sm px-4 text-primary">
+        <div *ngIf="submitted && registerForm.controls['phoneNumber'].errors" class="invalid-feedback">
+            <div *ngIf="registerForm.controls['phoneNumber'].hasError('required')">Vous devez saisir votre numero de telephone</div>
+           
+        </div>
+    </div>
+    <div class="form-group mb-3">
+    <input id="inputPassword"  type ="password" formControlName="password"
+    [ngClass]="{ 'is-invalid': submitted && registerForm.controls['password'].errors}"
+    placeholder="Mot de passe"
+    class="form-control rounded-pill border-0 shadow-sm px-4 text-primary">
+    <div *ngIf="submitted && registerForm.controls['password'].errors" class="invalid-feedback">
+        <div *ngIf="registerForm.controls['password'].hasError('required')">Vous devez saisir votre Mot de passe</div>
+       
+    </div>
+    </div>
+
+    <div class="form-group mb-3">
+        <input id="inputConfirmPassword" type="password" formControlName="confirmPassword"
+            [ngClass]="{'is-invalid': submitted && registerForm.controls['confirmPassword'].hasError('mustMatch')}"
+            placeholder="Confirmer mot de passe"
+            class="form-control rounded-pill border-0 shadow-sm px-4 text-primary">
+        <div *ngIf="submitted && registerForm.controls['confirmPassword'].hasError('mustMatch')" class="invalid-feedback">
+           <div> Les mots de passe doivent correspondre</div>
+        </div>
+    </div>
+
+    <button type="submit" class="btn btn-primary btn-block text-uppercase mb-2 rounded-pill shadow-sm" style="margin-left: 160px;margin-top: 20px;">S'inscrire</button>
+    </form>
+    <p class="text-muted mb-4" style="margin-top:10px;margin-left: 30px;font-size: 15px;">Vous avez un compte ? </p>
+    <a routerLink="/login" style="color: #1d6ada; text-decoration: none; margin-left: 30px;font-size: 15px;">Se connecter</a>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>

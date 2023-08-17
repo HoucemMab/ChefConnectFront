@@ -1,0 +1,132 @@
+<div class="container-fluid main-container" style="margin-left:100px;margin-top: 100px;">
+    <div class="row no-gutter">
+
+        <!-- The image half -->
+        <div class="col-md-6 d-none d-md-flex bg-image">
+        </div>
+        <!-- The content half -->
+        <div class="col-md-6 bg-light">
+            <div class="login d-flex align-items-center py-5">
+                <!-- Demo content-->
+                <div class="container" *ngIf="addRecipeForm">
+                    <div class="row">
+                        <div class="form-container">
+                            <h3 class="display-4">Ajouter une recette </h3>
+<form [formGroup]="addRecipeForm" (ngSubmit)="onSubmit()">
+    <div class="form-group mb-3">
+        <input id="inputTitle" type="text" formControlName="title"
+        [ngClass]="{ 'is-invalid': submitted && addRecipeForm.controls['title'].errors }"
+        placeholder="Titre de la recette " autofocus=""
+        class="form-control rounded-pill border-0 shadow-sm px-4">
+
+    <div *ngIf="submitted && addRecipeForm.controls['title'].errors" class="invalid-feedback">
+        <div *ngIf="addRecipeForm.controls['title'].hasError('required')">Vous devez saisir le titre de la recette
+    </div>
+</div>
+</div>
+    <div class="form-group mb-3">
+        <textarea id="inputDescription" type="text" formControlName="description"
+        [ngClass]="{ 'is-invalid': submitted && addRecipeForm.controls['description'].errors }"
+        placeholder="Description de la recette " autofocus=""
+        class="form-control rounded-pill border-0 shadow-sm px-4"></textarea>
+
+    <div *ngIf="submitted && addRecipeForm.controls['description'].errors" class="invalid-feedback">
+        <div *ngIf="addRecipeForm.controls['description'].hasError('required')">Vous devez saisir une description  </div>
+    </div>
+    </div>
+    <div class="form-group mb-3">
+        <input id="inputPreparationTime" type="text" formControlName="preparationTime"
+        [ngClass]="{ 'is-invalid': submitted && addRecipeForm.controls['preparationTime'].errors }"
+        placeholder="temps de préparation" autofocus=""
+        class="form-control rounded-pill border-0 shadow-sm px-4">
+
+    <div *ngIf="submitted && addRecipeForm.controls['preparationTime'].errors" class="invalid-feedback">
+        <div *ngIf="addRecipeForm.controls['preparationTime'].hasError('required')">Vous devez saisir temps de préparation</div>
+    </div>
+    </div>
+    <div class="form-group mb-3">
+        <input id="inputCookingTime" type="text" formControlName="cookingTime"
+        [ngClass]="{ 'is-invalid': submitted && addRecipeForm.controls['cookingTime'].errors }"
+        placeholder="temps de cuisson" autofocus=""
+        class="form-control rounded-pill border-0 shadow-sm px-4">
+
+    <div *ngIf="submitted && addRecipeForm.controls['cookingTime'].errors" class="invalid-feedback">
+        <div *ngIf="addRecipeForm.controls['cookingTime'].hasError('required')">Vous devez saisir temps de cuisson</div>
+    </div>
+    </div>
+
+    <div class="form-group mb-3">
+        <textarea id="inputSteps" type="text" formControlName="steps"
+        [ngClass]="{ 'is-invalid': submitted && addRecipeForm.controls['steps'].errors }"
+        placeholder="étapes de la recette" autofocus=""
+        class="form-control rounded-pill border-0 shadow-sm px-4"></textarea>
+
+    <div *ngIf="submitted && addRecipeForm.controls['description'].errors" class="invalid-feedback">
+        <div *ngIf="addRecipeForm.controls['description'].hasError('required')">Vous devez saisir les étapes de la recette  </div>
+    </div>
+    </div>
+
+ <div formArrayName="ingredients">
+    <button type="button" (click)="addIngredient()">+ Ajouter un autre ingrédient</button>
+    <div *ngFor="let ingredientCtrl of getIngredientsControls(); let i = index" [formGroupName]="i" class="ingredient-group">
+        <label for="ingredientCtrl-{{ i }}">Ingrédient:</label>
+        <input
+            id="ingredientCtrl-{{ i }}"
+            type="text"
+            formControlName="name"
+            class="form-control"
+        >
+        <div *ngIf="submitted && ingredientCtrl.get('name')?.hasError('required')" class="error-message">
+            Champ obligatoire
+        </div>
+        
+        <label>Quantité:</label>
+        <input
+            type="number"
+            formControlName="quantity"
+            class="form-control"
+        >
+        <div *ngIf="submitted && ingredientCtrl.get('quantity')?.hasError('required') " class="error-message">
+            Champ obligatoire
+        </div>
+        
+        <label>Unité:</label>
+        <input
+            type="text"
+            formControlName="unit"
+            class="form-control"
+        >
+        <div *ngIf="submitted && ingredientCtrl.get('unit')?.hasError('required') " class="error-message">
+            Champ obligatoire
+        </div>
+        
+        <button type="button" (click)="removeIngredient(i)" >Supprimer</button>
+    </div>
+</div>
+<div class="form-group mb-3">
+    <label for="image">Image de la recette:</label>
+    <input type="file" id="image" formControlName="image" accept="image/*">
+</div>
+
+<div class="form-group mb-3">
+    <label for="video">Vidéo de la recette:</label>
+    <!-- //video/* indique que tous les types de fichiers vidéo sont acceptés. -->
+    <input type="file" id="video" formControlName="video" accept="video/*">
+</div>
+<button type="submit" class="submit-btn" >Ajouter</button>
+
+    
+    <button type="submit"  [disabled]="!isFormValid()">Ajouter</button>
+    
+    
+
+        
+
+    </form>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
