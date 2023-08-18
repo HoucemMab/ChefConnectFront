@@ -35,6 +35,19 @@
           </p>
           <p class="post-steps">{{ recipe.steps }}</p>
         </div>
+        <div class="post-footer">
+          <!-- <button
+            class="btn-favorite"
+            (click)="addToFavorites(recipe.recipeId)"
+            [disabled]="isRecipeFavorite(recipe.recipeId)"
+          >
+            {{
+              isRecipeFavorite(recipe.recipeId)
+                ? "Added to Favorites"
+                : "Add to Favorites"
+            }}
+          </button> -->
+        </div>
       </div>
     </ng-container>
     <ng-template #noRecipes>

@@ -39,6 +39,7 @@
       </div>
       <div class="recipe-info">
         <h1 class="recipe-title">{{ recipeDetails.title }}</h1>
+
         <div class="recipe-metadata">
           <div class="metadata">
             <i class="material-icons">schedule</i>
@@ -51,6 +52,15 @@
           <div class="metadata">
             <i class="material-icons filled">group</i>
             {{ recipeDetails.globalRating }}
+          </div>
+          <div class="add-to-favorites">
+            <i
+              class="material-icons favorite-icon"
+              [class.favorite]="isRecipeFavorite(recipeId)"
+              (click)="addToFavorites(recipeId)"
+            >
+              favorite
+            </i>
           </div>
         </div>
         <p class="recipe-description">{{ recipeDetails.description }}</p>

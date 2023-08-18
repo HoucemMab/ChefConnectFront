@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { ApiService } from '../api.service';
+import { FavoriteService } from '../favorite.service';
 
 @Component({
   selector: 'app-posts',
@@ -9,7 +10,11 @@ import { ApiService } from '../api.service';
 export class PostsComponent {
   subscribedRecipes: any[] = [];
   userIdString: any;
-  constructor(private apiService: ApiService) {}
+
+  constructor(
+    private apiService: ApiService,
+    private favoriteService: FavoriteService
+  ) {}
 
   ngOnInit(): void {
     console.log('initiing');
@@ -23,7 +28,7 @@ export class PostsComponent {
         (response: any) => {
           console.log('resp', response);
           const allRecipes = response
-            .map((entry: any) => entry.abonnateur.recipes)
+            .map((entry: any) => entry.abonne.recipes)
             .flat();
 
           // Filter out duplicate recipes by ID

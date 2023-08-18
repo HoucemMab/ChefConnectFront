@@ -1,0 +1,53 @@
+<div class="recipe-list-container">
+  <div *ngIf="userId; else notLoggedIn">
+    <h2>Your Favorite Recipes</h2>
+    <div class="recipe-list">
+      <div *ngFor="let recipe of favoriteRecipes" class="recipe-card">
+        <div class="card" [routerLink]="['/recipe', recipe.recipeId]">
+          <div class="media-container">
+            <ng-container *ngIf="recipe.medias.length > 0; else noMedia">
+              <ng-container
+                *ngIf="recipe.medias[0].type === 'image'; else videoMedia"
+              >
+                <img
+                  [src]="recipe.medias[0].filePath"
+                  alt="Recipe Media"
+                  class="card-media"
+                />
+              </ng-container>
+              <ng-template #videoMedia>
+                <video controls>
+                  <source [src]="recipe.medias[0].filePath" type="video/mp4" />
+                  Your browser does not support the video tag.
+                </video>
+              </ng-template>
+            </ng-container>
+            <ng-template #noMedia>
+              <img
+                src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/ac/No_image_available.svg/1024px-No_image_available.svg.png"
+                alt="No Media"
+                class="card-media"
+              />
+            </ng-template>
+          </div>
+          <div class="card-body">
+            <h2 class="card-title">{{ recipe.title }}</h2>
+            <p class="card-text">{{ recipe.description }}</p>
+            <div class="icon-section">
+              <i class="fas fa-clock"></i> {{ recipe.preparationTime }} |
+              <i class="fas fa-star"></i> {{ recipe.averageGrade }} |
+              <i class="fas fa-heart"></i> {{ recipe.globalRating }}
+            </div>
+          </div>
+        </div>
+      </div>
+      <div *ngIf="favoriteRecipes.length === 0" class="no-recipes">
+        No recipes found.
+      </div>
+    </div>
+  </div>
+
+  <ng-template #notLoggedIn>
+    <p>You're not logged in. Please log in to view your favorite recipes.</p>
+  </ng-template>
+</div>

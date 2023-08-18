@@ -18,9 +18,13 @@ export class UserListComponent implements OnInit {
   }
 
   fetchUsers(): void {
-    this.userService.getUsers().subscribe((users: any[]) => {
-      this.users = users;
-    });
+    const userIdString = localStorage.getItem('userId');
+    if (userIdString) {
+      const userId = parseInt(userIdString, 10);
+      this.userService.getUsers().subscribe((users: any[]) => {
+        this.users = users.filter((user) => user.userId !== userId);
+      });
+    }
   }
 
   subscribeUser(subscriberId: number, targetUserId: number): void {

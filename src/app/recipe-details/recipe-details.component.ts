@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { RecipeService } from '../services/recipe.service';
+import { FavoriteService } from '../favorite.service';
 
 @Component({
   selector: 'app-recipe-details',
@@ -12,23 +13,25 @@ export class RecipeDetailsComponent implements OnInit {
   recipeDetails: any; // Adjust the type based on your data structure
   newRating: number = 0; // New rating input
   recipeNotFound: boolean = false;
+  userId: number | null = null; // Assuming you have a way to get the user ID
 
   constructor(
     private route: ActivatedRoute,
-    private recipeService: RecipeService // Inject your service
+    private recipeService: RecipeService,
+    private favoriteRecipes: FavoriteService
   ) {}
 
   ngOnInit(): void {
+    // Get user ID from local storage or your authentication service
+    this.userId = parseInt(localStorage.getItem('userId') || '', 10);
+
     this.route.params.subscribe((params) => {
-      console.log(params['id']);
       this.recipeId = params['id'];
       this.recipeService.getRecipeById(this.recipeId).subscribe(
         (res) => {
           this.recipeDetails = res;
-          console.log(this.recipeDetails);
         },
         (err) => {
-          console.log(err);
           this.recipeNotFound = true;
         }
       );
@@ -36,14 +39,29 @@ export class RecipeDetailsComponent implements OnInit {
   }
 
   setRating(rating: number) {
-    // Update the newRating
     this.newRating = rating;
-    // Call your recipe service to update the rating
-    console.log(rating);
     this.recipeService
       .updateRecipeRating(this.recipeId, this.newRating)
       .subscribe((response) => {
         console.log(response);
       });
+  }
+
+  addToFavorites(recipeId: number): void {
+    if (this.userId) {
+      this.favoriteRecipes.addToFavorites(this.userId, recipeId).subscribe(
+        (response) => {
+          // Update favoriteRecipes array or do other necessary actions
+          console.log('Added to favorites:', response);
+        },
+        (error) => {
+          console.log('Error adding to favorites:', error);
+        }
+      );
+    }
+  }
+
+  isRecipeFavorite(recipeId: number) {
+    // return this.favoriteRecipes.includes(recipeId);
   }
 }
