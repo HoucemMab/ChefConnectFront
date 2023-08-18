@@ -25,9 +25,9 @@
 }
 
 .gallery {
-  display: flex;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
   gap: 10px;
-  overflow-x: auto; /* Add horizontal scroll if content overflows */
 }
 
 .gallery-item img {
@@ -153,45 +153,10 @@
 .rating-stars i:hover {
   color: #ea906c;
 }
-/* Add to Favorites Button */
-.favorite-button {
-  background-color: #f44336;
-  color: white;
-  border: none;
-  padding: 10px 20px;
-  border-radius: 5px;
-  cursor: pointer;
-  font-size: 16px;
-  display: flex;
-  align-items: center;
-  gap: 10px;
-}
-
-.favorite-button.favorite {
-  background-color: #e53935;
-}
-
-.icon-heart {
-  width: 20px;
-  height: 20px;
-  fill: white;
-}
 .favorite-icon {
-  font-size: 24px;
-  color: #e9967a; /* Change the color as desired */
-  cursor: pointer;
-}
-
-.add-to-favorites {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  margin-top: 10px;
-}
-.favorite-icon {
-  margin-top: -10px;
-  font-size: 50px;
-  color: #e9967a; /* Change the color as desired */
+  margin-top: -12px;
+  font-size: 34px;
+  color: #ffd700; /* Change the color as desired */
   cursor: pointer;
   transition: color 0.3s;
 }
@@ -200,6 +165,7 @@
   display: flex;
   align-items: center;
   margin-top: 10px;
+  justify-content: center;
 }
 
 .add-to-favorites:hover .favorite-icon {
@@ -212,4 +178,31 @@
   align-items: center;
 }
 
-/* Other styles as needed */
+.share-button {
+  background-color: #ed7b7b;
+  color: white;
+  border: none;
+  padding: 8px 16px;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.share-button:hover {
+  background-color: #836096;
+}
+
+/* Copy Button */
+.copy-button {
+  background-color: #f0b86e;
+  color: white;
+  border: none;
+  padding: 8px 16px;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.copy-button:hover {
+  background-color: #ebe76c;
+}

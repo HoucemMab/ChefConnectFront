@@ -39,7 +39,6 @@
       </div>
       <div class="recipe-info">
         <h1 class="recipe-title">{{ recipeDetails.title }}</h1>
-
         <div class="recipe-metadata">
           <div class="metadata">
             <i class="material-icons">schedule</i>
@@ -53,6 +52,7 @@
             <i class="material-icons filled">group</i>
             {{ recipeDetails.globalRating }}
           </div>
+
           <div class="add-to-favorites">
             <i
               class="material-icons favorite-icon"
@@ -114,6 +114,17 @@
             >
               star
             </i>
+          </div>
+          <div class="sharing-section">
+            <button class="share-button" (click)="toggleSharing()">
+              Share
+            </button>
+            <div *ngIf="showSharing" class="sharing-link">
+              <input type="text" [value]="recipeLink" readonly />
+              <button class="copy-button" (click)="copyRecipeLink()">
+                Copy
+              </button>
+            </div>
           </div>
         </div>
       </div>
