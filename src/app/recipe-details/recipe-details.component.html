@@ -1,0 +1,112 @@
+<div *ngIf="recipeNotFound; else recipeDetailsSection">
+  <p>Sorry, the recipe was not found.</p>
+</div>
+<ng-template #recipeDetailsSection>
+  <div class="container">
+    <div class="recipe-details">
+      <div class="recipe-media">
+        <div class="gallery">
+          <ng-container
+            *ngIf="
+              recipeDetails.medias && recipeDetails.medias.length > 0;
+              else noMedia
+            "
+          >
+            <ng-container *ngFor="let media of recipeDetails.medias">
+              <div class="gallery-item">
+                <img
+                  [src]="
+                    media.type === 'image'
+                      ? media.filePath
+                      : 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQJ8siokMavzUNuD20QX1EjX7edIterWtz4eOJcOwuI&s'
+                  "
+                  alt="Recipe Media"
+                  class="media"
+                />
+              </div>
+            </ng-container>
+          </ng-container>
+        </div>
+        <ng-template #noMedia>
+          <div class="gallery-item">
+            <img
+              src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQJ8siokMavzUNuD20QX1EjX7edIterWtz4eOJcOwuI&s"
+              alt="No Media"
+              class="media"
+            />
+          </div>
+        </ng-template>
+      </div>
+      <div class="recipe-info">
+        <h1 class="recipe-title">{{ recipeDetails.title }}</h1>
+        <div class="recipe-metadata">
+          <div class="metadata">
+            <i class="material-icons">schedule</i>
+            {{ recipeDetails.preparationTime }}
+          </div>
+          <div class="metadata">
+            <i class="material-icons filled">star</i>
+            {{ recipeDetails.averageGrade }}
+          </div>
+          <div class="metadata">
+            <i class="material-icons filled">group</i>
+            {{ recipeDetails.globalRating }}
+          </div>
+        </div>
+        <p class="recipe-description">{{ recipeDetails.description }}</p>
+        <div class="recipe-steps">
+          <h2>Steps</h2>
+          <ol>
+            <li *ngFor="let step of recipeDetails.steps.split('\n')">
+              {{ step }}
+            </li>
+          </ol>
+        </div>
+        <div class="recipe-ingredients">
+          <h2>Ingredients</h2>
+          <ul>
+            <li *ngFor="let ingredient of recipeDetails.ingredients">
+              {{ ingredient }}
+            </li>
+          </ul>
+        </div>
+        <div class="recipe-comments">
+          <h2>Comments</h2>
+          <div
+            *ngFor="let comment of recipeDetails.comment"
+            class="comment-box"
+          >
+            <div class="comment-header">
+              <img
+                src="{{ comment.user.profileImage }}"
+                alt="User Avatar"
+                class="avatar"
+              />
+              <div class="user-info">
+                <div class="username">{{ comment.user.username }}</div>
+                <div class="comment-date">
+                  {{ comment.commentDate | date : "medium" }}
+                </div>
+              </div>
+            </div>
+            <div class="comment-content">{{ comment.content }}</div>
+          </div>
+        </div>
+        <div class="add-rating">
+          <h3>Rate this Recipe</h3>
+          <div class="rating-stars">
+            <i
+              *ngFor="let star of [1, 2, 3, 4, 5]"
+              [class]="
+                star <= newRating ? 'material-icons filled' : 'material-icons'
+              "
+              (click)="setRating(star)"
+            >
+              star
+            </i>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</ng-template>

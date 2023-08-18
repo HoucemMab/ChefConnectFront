@@ -1,0 +1,155 @@
+.container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  background-color: #f4f4f4;
+}
+
+.recipe-details {
+  display: grid;
+  grid-template-columns: 1fr 2fr;
+  gap: 20px;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 20px;
+  background-color: #ffffff;
+  border-radius: 10px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.recipe-media {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.gallery {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 10px;
+}
+
+.gallery-item img {
+  max-width: 100%;
+  height: auto;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.gallery-item img:hover {
+  transform: scale(1.05);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.recipe-info {
+  padding: 20px;
+}
+
+.recipe-title {
+  font-size: 28px;
+  margin-bottom: 10px;
+}
+
+.recipe-metadata {
+  display: flex;
+  align-items: center;
+  margin-bottom: 15px;
+}
+
+.metadata {
+  display: flex;
+  align-items: center;
+  margin-right: 20px;
+  font-size: 16px;
+  color: #555;
+}
+
+.metadata i {
+  margin-right: 5px;
+  font-size: 20px;
+}
+
+.recipe-description {
+  font-size: 18px;
+  margin-bottom: 20px;
+}
+
+.recipe-steps h2,
+.recipe-ingredients h2,
+.recipe-comments h2,
+.add-rating h3 {
+  font-size: 24px;
+  margin-bottom: 10px;
+}
+
+.recipe-steps ol,
+.recipe-ingredients ul,
+.recipe-comments,
+.rating-stars {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+}
+
+.recipe-steps li,
+.recipe-ingredients li {
+  margin-bottom: 5px;
+  font-size: 16px;
+}
+
+.comment-box {
+  padding: 10px;
+  border: 1px solid #ddd;
+  margin-bottom: 10px;
+  border-radius: 8px;
+}
+
+.comment-header {
+  display: flex;
+  align-items: center;
+  margin-bottom: 10px;
+}
+
+.avatar {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  margin-right: 10px;
+}
+
+.user-info {
+  display: flex;
+  flex-direction: column;
+}
+
+.username {
+  font-weight: bold;
+}
+
+.comment-content {
+  font-size: 16px;
+  line-height: 1.4;
+}
+
+.rating-stars {
+  font-size: 24px;
+  display: flex;
+  align-items: center;
+  margin-top: 10px;
+}
+
+.rating-stars i {
+  color: #ffd700;
+  cursor: pointer;
+  transition: color 0.2s;
+}
+
+.rating-stars i.filled {
+  color: #ea906c;
+}
+
+.rating-stars i:hover {
+  color: #ea906c;
+}

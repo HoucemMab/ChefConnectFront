@@ -1,12 +1,11 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { HttpClientModule } from '@angular/common/http';
-import {OnInit} from '@angular/core';
-import { ReactiveFormsModule } from '@angular/forms';
-import {MatFormFieldModule} from '@angular/material/form-field';
-import {MatInputModule} from '@angular/material/input';
-import {MatButtonModule} from '@angular/material/button';
-
+import { OnInit } from '@angular/core';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatInputModule } from '@angular/material/input';
+import { MatButtonModule } from '@angular/material/button';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -20,7 +19,8 @@ import { RegisterComponent } from './register/register.component';
 import { AddRecipeComponent } from './add-recipe/add-recipe.component';
 import { UpdateRecipeComponent } from './update-recipe/update-recipe.component';
 import { ConfirmationDialogComponentComponent } from './confirmation-dialog-component/confirmation-dialog-component.component';
-
+import { RecipeListComponent } from './recipe-list/recipe-list.component';
+import { RecipeDetailsComponent } from './recipe-details/recipe-details.component';
 
 @NgModule({
   declarations: [
@@ -34,7 +34,9 @@ import { ConfirmationDialogComponentComponent } from './confirmation-dialog-comp
     RegisterComponent,
     AddRecipeComponent,
     UpdateRecipeComponent,
-    ConfirmationDialogComponentComponent
+    ConfirmationDialogComponentComponent,
+    RecipeListComponent,
+    RecipeDetailsComponent,
   ],
   imports: [
     BrowserModule,
@@ -43,10 +45,10 @@ import { ConfirmationDialogComponentComponent } from './confirmation-dialog-comp
     ReactiveFormsModule,
     MatFormFieldModule,
     MatInputModule,
-    MatButtonModule
-    
+    MatButtonModule,
+    FormsModule,
   ],
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
 })
-export class AppModule { }
+export class AppModule {}
