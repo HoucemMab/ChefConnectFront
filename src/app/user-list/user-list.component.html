@@ -1,0 +1,34 @@
+<div class="user-list-container">
+  <div class="user-list">
+    <div *ngFor="let user of users" class="user-card">
+      <div class="user-avatar">
+        <img
+          src="https://cdn4.iconfinder.com/data/icons/job-avatar/512/Job_Avatar-02-512.png"
+          alt="{{ user.firstName }} {{ user.lastName }}"
+        />
+      </div>
+      <div class="user-info">
+        <div class="user-name">{{ user.firstName }} {{ user.lastName }}</div>
+        <button
+          (click)="subscribeUser(1, user.userId)"
+          class="subscribe-button"
+        >
+          Subscribe
+        </button>
+      </div>
+      <div class="success-message" *ngIf="subscribedUserId === user.userId">
+        <div class="message">
+          <span class="message-icon">
+            <i class="ri-heart-fill"></i>
+          </span>
+          <span class="message-text">Say Hi to your new Friend!</span>
+        </div>
+        <div class="error-message" *ngIf="errorMessage">
+          <div class="message">
+            <span class="message-text">{{ errorMessage }}</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

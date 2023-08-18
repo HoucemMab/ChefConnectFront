@@ -21,6 +21,8 @@ import { UpdateRecipeComponent } from './update-recipe/update-recipe.component';
 import { ConfirmationDialogComponentComponent } from './confirmation-dialog-component/confirmation-dialog-component.component';
 import { RecipeListComponent } from './recipe-list/recipe-list.component';
 import { RecipeDetailsComponent } from './recipe-details/recipe-details.component';
+import { UserListComponent } from './user-list/user-list.component';
+import { PostsComponent } from './posts/posts.component';
 
 @NgModule({
   declarations: [
@@ -37,6 +39,8 @@ import { RecipeDetailsComponent } from './recipe-details/recipe-details.componen
     ConfirmationDialogComponentComponent,
     RecipeListComponent,
     RecipeDetailsComponent,
+    UserListComponent,
+    PostsComponent,
   ],
   imports: [
     BrowserModule,

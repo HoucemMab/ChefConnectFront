@@ -1,0 +1,51 @@
+<div class="posts-container">
+  <ng-container *ngIf="userIdString; else noAccess">
+    <ng-container *ngIf="subscribedRecipes.length > 0; else noRecipes">
+      <div
+        *ngFor="let recipe of subscribedRecipes"
+        class="post"
+        [routerLink]="['/recipe', recipe.recipeId]"
+      >
+        <div class="post-header">
+          <img
+            [src]="recipe.medias[0]?.filePath"
+            alt="Recipe Image"
+            class="post-image"
+          />
+          <div class="post-user">
+            <img
+              src="https://cdn4.iconfinder.com/data/icons/job-avatar/512/Job_Avatar-02-512.png"
+              alt="User Avatar"
+              class="user-avatar"
+            />
+            <div class="user-name">
+              {{ recipe.user.firstName }} {{ recipe.user.lastName }}
+            </div>
+          </div>
+        </div>
+        <div class="post-content">
+          <h2 class="post-title">{{ recipe.title }}</h2>
+          <p class="post-description">{{ recipe.description }}</p>
+          <p class="post-time">
+            {{ recipe.preparationTime }} prep / {{ recipe.cookingTime }} cook
+          </p>
+          <p class="post-rating">
+            Rating: {{ recipe.averageGrade }} ({{ recipe.totalNumberOfUser }}
+            ratings)
+          </p>
+          <p class="post-steps">{{ recipe.steps }}</p>
+        </div>
+      </div>
+    </ng-container>
+    <ng-template #noRecipes>
+      <div class="no-recipes-message">
+        You don't have any subscribed recipes.
+      </div>
+    </ng-template>
+  </ng-container>
+  <ng-template #noAccess>
+    <div class="no-access-message">
+      You can't access this page. Please log in.
+    </div>
+  </ng-template>
+</div>
