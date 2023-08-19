@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { UserService } from '../user.service';
+import { SubscriptionsService } from '../subscriptions.service';
 
 @Component({
   selector: 'app-user-list',
@@ -11,7 +12,10 @@ export class UserListComponent implements OnInit {
   subscribedUserId: number | null = null; // To track subscribed user
   errorMessage: string = '';
 
-  constructor(private userService: UserService) {}
+  constructor(
+    private userService: UserService,
+    private subscriptionsService: SubscriptionsService
+  ) {}
 
   ngOnInit(): void {
     this.fetchUsers();
@@ -21,10 +25,28 @@ export class UserListComponent implements OnInit {
     const userIdString = localStorage.getItem('userId');
     if (userIdString) {
       const userId = parseInt(userIdString, 10);
-      this.userService.getUsers().subscribe((users: any[]) => {
-        this.users = users.filter((user) => user.userId !== userId);
-      });
+
+      // Fetch the list of subscribed users
+      this.subscriptionsService
+        .getSubscribedUsers(userId)
+        .subscribe((subscribedUsers: any[]) => {
+          // Fetch the list of all users
+          this.userService.getUsers().subscribe((allUsers: any[]) => {
+            // Filter out logged-in and subscribed users
+            this.users = allUsers.filter(
+              (user) =>
+                user.userId !== userId &&
+                !this.isSubscribed(subscribedUsers, user)
+            );
+          });
+        });
     }
+  }
+
+  isSubscribed(subscribedUsers: any[], user: any): boolean {
+    return subscribedUsers.some(
+      (subscribedUser) => subscribedUser.abonne.userId === user.userId
+    );
   }
 
   subscribeUser(subscriberId: number, targetUserId: number): void {
@@ -32,6 +54,7 @@ export class UserListComponent implements OnInit {
       () => {
         // Show a success message
         this.subscribedUserId = targetUserId;
+        window.location.reload();
       },
       (error) => {
         // Handle error

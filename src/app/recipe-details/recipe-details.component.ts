@@ -47,6 +47,7 @@ export class RecipeDetailsComponent implements OnInit {
       .updateRecipeRating(this.recipeId, this.newRating)
       .subscribe((response) => {
         console.log(response);
+        window.location.reload();
       });
   }
 

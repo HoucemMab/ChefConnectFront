@@ -24,6 +24,7 @@ import { RecipeDetailsComponent } from './recipe-details/recipe-details.componen
 import { UserListComponent } from './user-list/user-list.component';
 import { PostsComponent } from './posts/posts.component';
 import { FavoriteRecipesComponent } from './favorite-recipes/favorite-recipes.component';
+import { NavigationComponent } from './navigation/navigation.component';
 
 @NgModule({
   declarations: [
@@ -43,6 +44,7 @@ import { FavoriteRecipesComponent } from './favorite-recipes/favorite-recipes.co
     UserListComponent,
     PostsComponent,
     FavoriteRecipesComponent,
+    NavigationComponent,
   ],
   imports: [
     BrowserModule,

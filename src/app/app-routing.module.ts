@@ -12,6 +12,7 @@ import { RecipeDetailsComponent } from './recipe-details/recipe-details.componen
 import { UserListComponent } from './user-list/user-list.component';
 import { PostsComponent } from './posts/posts.component';
 import { FavoriteRecipesComponent } from './favorite-recipes/favorite-recipes.component';
+import { NavigationComponent } from './navigation/navigation.component';
 
 const routes: Routes = [
   { path: 'login', component: LoginComponent },
@@ -25,6 +26,7 @@ const routes: Routes = [
   { path: 'subscribe', component: UserListComponent },
   { path: 'posts', component: PostsComponent },
   { path: 'favorite', component: FavoriteRecipesComponent },
+  { path: 'navigation', component: NavigationComponent },
 
   { path: 'recipe/:id', component: RecipeDetailsComponent }, // Route for recipe details
 ];

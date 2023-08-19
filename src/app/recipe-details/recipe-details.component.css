@@ -165,7 +165,6 @@
   display: flex;
   align-items: center;
   margin-top: 10px;
-  justify-content: center;
 }
 
 .add-to-favorites:hover .favorite-icon {
